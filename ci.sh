@@ -75,6 +75,9 @@ mkdir -p ${CTT_VOLUME}/project/${CTT_PROJECT_UUID}/radon-ctt
 cp "${SUT_CSAR}" "${TI_CSAR}" "${CTT_VOLUME}/project/${CTT_PROJECT_UUID}/radon-ctt" #copy the 2 downloaded test csars from workspace to project dir
 echo "ls  ${CTT_VOLUME}/project/${CTT_PROJECT_UUID}/radon-ctt ..............."
 ls ${CTT_VOLUME}/project/${CTT_PROJECT_UUID}/radon-ctt
+pwd
+echo "ls $pwd"
+ls 
 
 # CTT: Create Test-Artifact
 #export CTT_TESTARTIFACT_UUID=$(./curl_uuid.sh  "${CTT_ENDPOINT}/testartifact"  "{\"project_uuid\":\"${CTT_PROJECT_UUID}\",\"sut_tosca_path\":\"radon-ctt/${SUT_CSAR_FN}\",\"ti_tosca_path\":\"radon-ctt/${TI_CSAR_FN}\"}")
