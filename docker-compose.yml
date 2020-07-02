@@ -1,0 +1,15 @@
+version: '3'
+services:
+  winery:
+    image: opentosca/radon-gmt
+    environment:
+      WINERY_HOSTNAME: ${PUBLIC_HOSTNAME}
+      WORKFLOWMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
+      TOPOLOGYMODELER_HOSTNAME: ${PUBLIC_HOSTNAME}
+      CONTAINER_HOSTNAME: ${PUBLIC_HOSTNAME}
+      WINERY_FEATURE_RADON: "true"
+      WINERY_REPOSITORY_PROVIDER: "yaml"
+    volumes:
+      - ${WORKSPACE}/radon-particles:/var/repository
+    ports:
+      - '18080:8080'
