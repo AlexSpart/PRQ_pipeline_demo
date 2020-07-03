@@ -49,7 +49,7 @@ mkdir ${CTT_VOLUME}
 docker rm -f ${CTT_DOCKER_NAME} || true
 
 # Pull latest docker 'RadonCTT' image
-#docker pull radonconsortium/radon-ctt:latest
+docker pull radonconsortium/radon-ctt:latest
 docker run --name "${CTT_DOCKER_NAME}" -d -p "127.0.0.1:${CTT_EXT_PORT}:${CTT_PORT}" -v /var/run/docker.sock:/var/run/docker.sock -v "${CTT_VOLUME}:${WORKSPACE}/RadonCTT" "${CTT_SERVER_DOCKER}:${CTT_SERVER_DOCKER_TAG}"
   
 # clone REPO_DEMO (PRQ_pipeline_demo)
