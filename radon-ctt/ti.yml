@@ -1,0 +1,29 @@
+tosca_definitions_version: tosca_simple_yaml_1_3
+
+node_types:
+  radon.nodes.docker.WebApplication:
+    derived_from: tosca.nodes.SoftwareComponent
+    interfaces:
+      Standard:
+        operations:
+          create:
+            implementation:
+              primary: create_ti.yml
+    requirements:
+      - host:
+          capability: tosca.capabilities.Compute
+          relationship: tosca.relationships.HostedOn
+
+topology_template:
+  node_templates:
+    Workstation:
+      type: tosca.nodes.Compute
+      attributes:
+        private_address: localhost
+        public_address: localhost
+
+    JMeterAgent:
+      type: radon.nodes.docker.WebApplication
+      requirements:
+        - host: Workstation
+
